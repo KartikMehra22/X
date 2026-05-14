@@ -1,7 +1,10 @@
+chroma_db/
+.env
 __pycache__/
 *.pyc
-.env
-chroma_db/
 .venv/
 env/
 venv/
+catalog.json
+traces.json
+server.log

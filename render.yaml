@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: shl-recommender
+    runtime: docker
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
