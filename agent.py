@@ -78,7 +78,7 @@ def call_llm(messages: list[dict], catalog_context: str) -> dict:
         return {
             "reply": "I'm currently unable to access my advisor logic. Please ensure the GROQ_API_KEY is configured.",
             "recommendations": [],
-            "end_of_conversation": false
+            "end_of_conversation": False
         }
 
     full_system_prompt = SYSTEM_PROMPT.format(catalog_context=catalog_context)
@@ -106,7 +106,7 @@ def call_llm(messages: list[dict], catalog_context: str) -> dict:
             return {
                 "reply": "I apologize, but I encountered an error processing my response. How else can I help you with SHL assessments?",
                 "recommendations": [],
-                "end_of_conversation": false
+                "end_of_conversation": False
             }
             
     except Exception as e:
@@ -114,7 +114,7 @@ def call_llm(messages: list[dict], catalog_context: str) -> dict:
         return {
             "reply": "I'm sorry, I'm having trouble connecting to my knowledge base right now. Please try again in a moment.",
             "recommendations": [],
-            "end_of_conversation": false
+            "end_of_conversation": False
         }
 
 def run_agent(messages: list[dict]) -> dict:
