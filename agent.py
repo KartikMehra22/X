@@ -126,12 +126,26 @@ def call_llm(messages: list[dict], catalog_context: str) -> dict:
 
 def run_agent(messages: list[dict]) -> dict:
     """Main entry point for the agent logic."""
-    # Build retrieval query from last 3 user messages
+    # Dual-pass retrieval:
+    # 1. Broad context (last 3 user messages)
     user_messages = [m['content'] for m in messages if m['role'] == 'user']
-    retrieval_query = " ".join(user_messages[-3:])
+    broad_query = " ".join(user_messages[-3:])
+    broad_hits = search_catalog(broad_query, n=15)
     
-    # Get top 12 hits from the catalog
-    hits = search_catalog(retrieval_query, n=12)
+    # 2. Latest intent (last user message)
+    latest_query = user_messages[-1]
+    latest_hits = search_catalog(latest_query, n=10)
+    
+    # Merge and deduplicate
+    seen_urls = set()
+    hits = []
+    for h in latest_hits + broad_hits:
+        if h['url'] not in seen_urls:
+            hits.append(h)
+            seen_urls.add(h['url'])
+    
+    # Keep top 25 unique hits for the LLM
+    hits = hits[:25]
     
     # Create a string representation of the context for the LLM
     catalog_context = "\n---\n".join([h['chunk'] for h in hits])
