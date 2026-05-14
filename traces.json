@@ -1,0 +1,18 @@
+[
+  {
+    "id": "trace_001",
+    "relevant_assessments": ["Account Manager Solution"],
+    "turns": [
+      {"user_input": "I need to hire an Account Manager."},
+      {"user_input": "They will be mid-level professionals."}
+    ]
+  },
+  {
+    "id": "trace_002",
+    "relevant_assessments": ["Administrative Professional - Short Form"],
+    "turns": [
+      {"user_input": "I'm looking for administrative tests."},
+      {"user_input": "Entry level roles."}
+    ]
+  }
+]
