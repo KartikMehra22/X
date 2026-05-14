@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Account Manager Solution",
+    "url": "https://www.shl.com/products/product-catalog/view/account-manager-solution/",
+    "description": "The Account Manager solution is an assessment used for job candidates applying to mid-level leadership positions that tend to manage the day-to-day operations and activities of client accounts. Sample tasks for these jobs include, but are not limited to: communicating with clients about project status, developing and maintaining project plans, coordinating internally with appropriate project personnel, and ensuring client expectations are being met. Potential job titles that use this solution are: Account Executive, Account Manager, and Senior Account Manager. There are multiple configurations of this solution available.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional",
+    "duration": "Approximate Completion Time in minutes = 49"
+  },
+  {
+    "name": "Administrative Professional - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/administrative-professional-short-form/",
+    "description": "The Administrative Professional solution is for entry to mid-level positions that involve routine clerical and administrative functions in addition to office management functions and customer service. Sample tasks for this job include, but are not limited to: arranging conference calls; drafting correspondence; scheduling meetings; greeting visitors; coordinating office activities. Potential job titles that use this solution are: Administrative Assistant, Secretary, Office Manager, Administrative Aide, and Administrative Associate.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 36"
+  },
+  {
+    "name": "Agency Manager Solution",
+    "url": "https://www.shl.com/products/product-catalog/view/agency-manager-solution/",
+    "description": "The Agency Manager solution is for mid-level sales management positions that include front line management and sales responsibilities. Sample tasks for this job include, but are not limited to: directing and coordinating financial activities of workers in a branch, office, or department of an establishment, such as branch bank, brokerage firm, risk and insurance department, or credit department.  Potential job titles that use this solution are: Agency Manager, Brokerage Manager. Multiple configurations of this solution are available.",
+    "test_type": "K",
+    "job_levels": "Front Line Manager, Manager, Supervisor",
+    "duration": "Approximate Completion Time in minutes = 51"
+  },
+  {
+    "name": "Apprentice + 8.0 Job Focused Assessment",
+    "url": "https://www.shl.com/products/product-catalog/view/apprentice-8-0-job-focused-assessment-4261/",
+    "description": "The Apprentice + 8.0 Job-Focused Assessment is a short, targeted, globally applicable assessment which includes a short cognitive ability measure. This assessment is designed for entry-level positions appropriate for countries and industries that use an apprenticeship model. It is intended to be used multi-nationally for organisations whose business spans across regions.",
+    "test_type": "A",
+    "job_levels": "General Population, Graduate, Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 30"
+  },
+  {
+    "name": "Apprentice 8.0 Job Focused Assessment",
+    "url": "https://www.shl.com/products/product-catalog/view/apprentice-8-0-job-focused-assessment/",
+    "description": "The Apprentice 8.0 Job-Focused Assessment is a short, targeted, globally applicable assessment. This assessment is designed for entry-level positions appropriate for countries and industries that use an apprenticeship model. It is intended to be used multi-nationally for organizations whose business spans across regions.",
+    "test_type": "K",
+    "job_levels": "Entry-Level, General Population, Graduate",
+    "duration": "Approximate Completion Time in minutes = 20"
+  },
+  {
+    "name": "Bank Administrative Assistant - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/bank-administrative-assistant-short-form/",
+    "description": "The Administrative Assistant solution is for entry-level clerical positions that interact with external or internal customers. Sample tasks for these jobs include, but are not limited to: answering telephones, managing files and records, sorting mail, greeting customers, and collaborating with co-workers on projects. Potential job titles that use this solution are: Receptionist and Administrative Assistant. There are multiple configurations of this solution available.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 35"
+  },
+  {
+    "name": "Bank Collections Agent - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/bank-collections-agent-short-form/",
+    "description": "This solution is for entry-level collections positions in an inbound or outbound call center environment in a financial setting. Candidates answer multiple choice questions to measure achievement orientation, dependability, collector numerical skills, revenue recovery, customer focus, and persistence and planfulness. There are multiple configurations and versions of this solution available.",
+    "test_type": "A",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 45"
+  },
+  {
+    "name": "Bank Operations Supervisor - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/bank-operations-supervisor-short-form/",
+    "description": "The Bank Operations Supervisor solution is for job candidates applying to entry-level leadership positions who tend to supervise hourly employees. Sample tasks for these jobs include, but are not limited to:  planning and preparing work schedules, assigning employees to specific duties; coaching  employees on attendance, conduct, schedule adherence, and work tasks, developing employees' skills ; training subordinates; prioritizing multiple tasks  and priorities; and making  day-to-day decisions with minimal guidance from others. Potential job titles that use this solution are: Team Leader, First Line Supervisor, Processing Supervisor, Call Center Supervisor, and Customer Service Supervisor. There are multiple configurations and versions of this solution available.",
+    "test_type": "K",
+    "job_levels": "Front Line Manager, Manager, Supervisor",
+    "duration": "Approximate Completion Time in minutes = 45"
+  },
+  {
+    "name": "Bilingual Spanish Reservation Agent Solution",
+    "url": "https://www.shl.com/products/product-catalog/view/bilingual-spanish-reservation-agent-solution/",
+    "description": "The Bilingual Reservation Agent solution is designed for customer centered entry-level positions within the hospitality industry. Sample tasks may include making, updating, or canceling hotel reservations made in English or Spanish; listening to customers speak Spanish and entering information into a computer in English; providing information on the hotel and the services offered. Potential job titles that use this solution are: Bilingual Reservation Agent, Customer Service Representative and Reservationist. Multiple configurations of this solution are available.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 43"
+  },
+  {
+    "name": "Bookkeeping, Accounting, Auditing Clerk Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/bookkeeping-accounting-auditing-clerk-short-form/",
+    "description": "The Bookkeeping, Accounting, and Auditing Clerk solution is for entry-level positions that involve entering numerical data into computer systems and maintaining financial records. Sample tasks for this job include, but are not limited to: entering financial data into computers; checking financial records for accuracy; perform routine computations on financial data. Potential job titles that use this solution are: Accounting Clerk, Bookkeeper, Accounting Associate, Auditing Clerk and Accounts Receivable Clerk.",
+    "test_type": "A",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 49"
+  },
+  {
+    "name": "Branch Manager - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/branch-manager-short-form/",
+    "description": "This solution is for mid to upper-level financial institution managerial positions. Candidates answer a series of multiple choice questions to measure management potential, management judgment, leadership potential, team management, branch manager problem solving, business leadership, leadership motivation, interpersonal leadership, self leadership, and branch manager judgment. There are multiple configurations and versions of this solution available.",
+    "test_type": "P",
+    "job_levels": "Front Line Manager, Manager, Supervisor",
+    "duration": "Approximate Completion Time in minutes = 50"
+  },
+  {
+    "name": "Cashier Solution",
+    "url": "https://www.shl.com/products/product-catalog/view/cashier-solution/",
+    "description": "The Cashier solution is for entry-level retail positions in which employees receive payment in the form of cash, check, or credit cards for goods purchased. Sample tasks for these jobs include, but are not limited to: handling payments, offering customer service, and issuing receipts and refunds. Potential job titles that use this solution are: Cashier, Sales Associate, and Clerk. There are multiple configurations and versions of this solution available.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 28"
+  },
+  {
+    "name": "Global Skills Development Report",
+    "url": "https://www.shl.com/products/product-catalog/view/global-skills-development-report/",
+    "description": "This report is designed to be given to individuals who have completed the Global Skills Assessment (GSA). With coverage across the Great 8 Domains, this measure of self-reported behaviors offers a complete overview of their current skills. Participants receive actionable tips on leveraging their top skill strengths and how they might develop their growth skills.",
+    "test_type": "K",
+    "job_levels": "Director, Entry-Level, Executive, General Population, Graduate, Manager, Mid-Professional, Front Line Manager, Supervisor",
+    "duration": ""
+  },
+  {
+    "name": ".NET Framework 4.5",
+    "url": "https://www.shl.com/products/product-catalog/view/net-framework-4-5/",
+    "description": "The.NET Framework 4.5 test measures knowledge of .NET environment. Designed for experienced users, this test covers the following topics: Application Development, Application Foundation, Data Modeling, Deployment, Diagnostics, Performance, Portability, and Security.",
+    "test_type": "A",
+    "job_levels": "Professional Individual Contributor, Mid-Professional",
+    "duration": "Approximate Completion Time in minutes = 30"
+  },
+  {
+    "name": ".NET MVC (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-mvc-new/",
+    "description": "Multi-choice test that measures the knowledge of Model-View-Controller (MVC) architecture, validation, security, routing, and areas.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 17"
+  },
+  {
+    "name": ".NET MVVM (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-mvvm-new/",
+    "description": "Multi-choice test that measures the knowledge of MVVM pattern, scenarios, data validation, ViewModel communication and Quick-start.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 5"
+  },
+  {
+    "name": ".NET WCF (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-wcf-new/",
+    "description": "Multi-choice test that measures the knowledge of .NET fundamentals, WCF architecture, programming model, SOA, managing and programming WCF.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 11"
+  },
+  {
+    "name": ".NET WPF (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-wpf-new/",
+    "description": "Multi-choice test that measures the knowledge of .NET basics, WPF, XAML controls, events, layouts, working with WPF windows/menus and deploying WPF applications.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 9"
+  },
+  {
+    "name": ".NET XAML (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/net-xaml-new/",
+    "description": "Multi-choice test that measures the knowledge of XAML triggers, data binding, custom controls and layouts.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 5"
+  },
+  {
+    "name": "Accounts Payable (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-payable-new/",
+    "description": "Multiple-choice test that measures the knowledge of processing payables and vendor invoices, and the posting of journal entries.",
+    "test_type": "K",
+    "job_levels": "Entry-Level, Graduate, Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 9"
+  },
+  {
+    "name": "Accounts Payable Simulation (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-payable-simulation-new/",
+    "description": "Simulated data entry test that measures the ability to process payables and vendor invoices.",
+    "test_type": "A",
+    "job_levels": "Entry-Level, Graduate, Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 8"
+  },
+  {
+    "name": "Accounts Receivable (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-receivable-new/",
+    "description": "Multiple-choice test that measures the knowledge of processing receivables and invoices.",
+    "test_type": "K",
+    "job_levels": "Entry-Level, Graduate, Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 13"
+  },
+  {
+    "name": "Accounts Receivable Simulation (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/accounts-receivable-simulation-new/",
+    "description": "Simulated data entry test that measures the ability to process receivables and invoices.",
+    "test_type": "A",
+    "job_levels": "Entry-Level, Graduate, Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 8"
+  },
+  {
+    "name": "ADO.NET (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/ado-net-new/",
+    "description": "Multi-choice test that measures the knowledge on the concepts of ADO.NET architecture, components and data provider objects.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 10"
+  },
+  {
+    "name": "Claims/Operations Supervisor Solution",
+    "url": "https://www.shl.com/products/product-catalog/view/claimsoperations-supervisor-solution/",
+    "description": "The Claims/Operations Supervisor solution is for entry-level management positions that involve supervising hourly employees.  Sample tasks for this job include, but are not limited to: planning and preapring work schedules; assigning employees to specific dutites; coaching employees on attendance, conduct, schedule adherence, and work tasks; developing employees' skills; training subordinates; prioritizing multiple tasks and priorities; making day-to-day decisions with minimal guidance from others.  Potential job titles that use this solution are: Team Leader, Coach, First Line Supervisor, Claims Supervisor, Operations Supervisor, and Customer Service Supervisor.  Multiple configurations of this solution are available.",
+    "test_type": "K",
+    "job_levels": "Manager",
+    "duration": "Approximate Completion Time in minutes = 48"
+  },
+  {
+    "name": "Contact Center Customer Service + 8.0",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-center-customer-service-8-0/",
+    "description": "The Contact Center + 8.0 - Customer Service Job Focused Assessment is designed to measure the skills, competencies, and behaviors needed for success in contact center roles where the main focus is customer service. This JFA includes a mobile-optimized contact center simulation, a behavioral assessment, and a cognitive test. Together, these assessments capture the ability to provide exceptional customer service in entry-level contact center roles.",
+    "test_type": "A",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 41"
+  },
+  {
+    "name": "Contact Center Customer Service 8.0",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-center-customer-service-8-0-4269/",
+    "description": "The Customer Service 8.0 JFA is designed for entry-level positions in a contact center environment where the main focus is customer service.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 31"
+  },
+  {
+    "name": "Contact Center Manager - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-center-manager-short-form/",
+    "description": "The Contact Center - Manager solution is for mid to upper-level contact center managerial positions. Sample\r\ntasks for these jobs include, but are not limited to: supervising and coordinating the activities of subordinates;\r\ninteracting day-to-day with subordinates; and training employees. Potential job titles that use this solution are:\r\nContact Center Team Leader, First Line Supervisor, and Contact Center Manager.",
+    "test_type": "K",
+    "job_levels": "Manager, Supervisor, Front Line Manager",
+    "duration": "Approximate Completion Time in minutes = 50"
+  },
+  {
+    "name": "Contact Center Sales & Service + 8.0",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-center-sales-and-service-8-0/",
+    "description": "The Contact Center + 8.0 - Sales & Service Job Focused Assessment is designed to measure the skills, competencies, and behaviors needed for success in contact center roles that involve sales-related behaviors such as recommending products or services and retaining customers. This JFA includes a mobile-optimized contact center simulation, a behavioral assessment, and a cognitive test. Together, these assessments capture the ability to provide exceptional customer service and drive sales in entry-level contact center roles.",
+    "test_type": "A",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 41"
+  },
+  {
+    "name": "Contact Center Sales & Service 8.0",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-center-sales-and-service-8-0-4268/",
+    "description": "The Sales & Service 8.0 JFA is designed for contact center roles that involve sales or sales-related behaviors such as recommending products or services and retaining customers.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 31"
+  },
+  {
+    "name": "Contact Center Team Lead/Coach - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-center-team-leadcoach-short-form/",
+    "description": "The Contact Center - Team Lead/Coach solution is for job candidates applying to entry-level leadership\r\npositions who tend to supervise hourly employees. Sample tasks for these jobs include, but are not limited\r\nto: planning and preparing work schedules; assigning employees to specific duties; coaching employees on\r\nattendance, conduct, schedule adherence, and work tasks; developing employees' skills; training subordinates\r\nor less tenured peers; prioritizing multiple tasks and priorities; and making day-to-day decisions with minimal\r\nguidance from others. Potential job titles that use this solution are: Team Leader, Coach, First Line Supervisor,\r\nProcessing Supervisor, Call Center Supervisor, and Customer Service Supervisor.",
+    "test_type": "K",
+    "job_levels": "Front Line Manager, Professional Individual Contributor, Supervisor",
+    "duration": "Approximate Completion Time in minutes = 45"
+  },
+  {
+    "name": "Contact Centre Agent Solution - UK",
+    "url": "https://www.shl.com/products/product-catalog/view/contact-centre-agent-solution-uk/",
+    "description": "This solution is used for job candidates applying to entry-level positions in a contact centre environment where the main focus of the job is customer service. The candidate answers multiple choice questions as well as questions in a customer call simulation environment. The solution measures: working with information, customer focus, contact centre retention, navigation, service orientation, and tactful problem solving. In addition, the solution measures data entry speed and accuracy, multi-tasking preferences, achievement orientation and conscientiousness.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 39"
+  },
+  {
+    "name": "Customer Service - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/customer-service-short-form/",
+    "description": "The Customer Service Representative Solution is for entry-level positions that involve a high degree of interaction with customers in person or on the phone. Sample tasks for this job include, but are not limited to: taking orders; solving product or service issues; responding positively to difficult customers; referring unresolved issues to the appropriate individuals; providing information on products and/or services. Potential job titles that use this solution are: Account Service Representative, Account Representative, Customer Service Representative, and Customer Service Agent.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 42"
+  },
+  {
+    "name": "Customer Service - Short Form - UK",
+    "url": "https://www.shl.com/products/product-catalog/view/customer-service-short-form-uk/",
+    "description": "The Customer Service Representative solution is for entry-level positions that involve\r\na high degree of interaction with customers in person or on the phone. Sample tasks\r\nfor this job include, but are not limited to: taking orders; solving product or service\r\nissues; responding positively to difficult customers; referring unresolved issues to the\r\nappropriate individuals; providing information on products and/or services. Potential\r\njob titles that use this solution are: Account Service Representative, Account\r\nRepresentative, Customer Service Representative, and Customer Service Agent.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 42"
+  },
+  {
+    "name": "Customer Service with Sales - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/customer-service-with-sales-short-form/",
+    "description": "The Customer Service with Sales solution is for entry-level positions that involve both providing service and support to customers and selling goods and services. Sample tasks for this job include, but are not limited to: taking orders; solving product or service issues; selling products and services; responding positively to difficult customers; adding new goods and services to existing accounts; providing information on products and/or services. Potential job titles that use this solution are: Account Service Representative, Account Representative, Customer Service Representative, and Sales Representative.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 44"
+  },
+  {
+    "name": "Director - Short Form",
+    "url": "https://www.shl.com/products/product-catalog/view/director-short-form/",
+    "description": "The Director solution is intended for use with senior level positions responsible for the planning, directing, or coordinating key business activities and operations of companies. Duties and responsibilities include formulating policies, managing daily operations, and planning the use of materials and human resources. Potential job titles that use this solution are: Director, Regional Director, and Director of Operations.",
+    "test_type": "K",
+    "job_levels": "Director",
+    "duration": "Approximate Completion Time in minutes = 69"
+  },
+  {
+    "name": "Adobe Experience Manager (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/adobe-experience-manager-new/",
+    "description": "Multi-choice test that measures the knowledge of AEM components, templates, workflows, AEM collections, OSGi services and troubleshooting of AEM projects.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 17"
+  },
+  {
+    "name": "Adobe Photoshop CC",
+    "url": "https://www.shl.com/products/product-catalog/view/adobe-photoshop-cc/",
+    "description": "The Adobe Photoshop CC test measures knowledge of Adobe Photoshop CC. Designed for experienced users, this test covers the following topics: 3D, Color, File Management, Interface, Layers, Painting and Drawing, Retouch and Enhancements, Selection, Text, and Web.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 20"
+  },
+  {
+    "name": "Aeronautical Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/aeronautical-engineering-new/",
+    "description": "Multi-choice test that measures the knowledge of flight mechanics, space dynamics, aerodynamics, structures and propulsion.",
+    "test_type": "K",
+    "job_levels": "Graduate, Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 10"
+  },
+  {
+    "name": "Aerospace Engineering (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/aerospace-engineering-new/",
+    "description": "Multi-choice test that measures the conceptual knowledge of aerodynamics, aircraft systems and instrumentation, flight dynamics, space dynamics and avionics.",
+    "test_type": "K",
+    "job_levels": "Graduate, Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 10"
+  },
+  {
+    "name": "Agile Software Development",
+    "url": "https://www.shl.com/products/product-catalog/view/agile-software-development/",
+    "description": "Multi-choice test that measures the knowledge of agile methodology, scrum, feature driven software development, incremental and iterative development and processes involved in agile software development.",
+    "test_type": "K",
+    "job_levels": "Graduate",
+    "duration": "Approximate Completion Time in minutes = 7 minutes"
+  },
+  {
+    "name": "Agile Testing (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/agile-testing-new/",
+    "description": "Multi-choice test that measures the knowledge of tools, techniques and processes involved in the Agile testing methodology.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 13"
+  },
+  {
+    "name": "AI Skills",
+    "url": "https://www.shl.com/products/product-catalog/view/ai-skills/",
+    "description": "The AI Skills assessment measures the skills that help candidates successfully leverage AI in their work.",
+    "test_type": "K",
+    "job_levels": "General Population",
+    "duration": "Approximate Completion Time in minutes = 16"
+  },
+  {
+    "name": "Amazon Web Services (AWS) Development (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/amazon-web-services-aws-development-new/",
+    "description": "Multi-choice test that measures the knowledge of AWS delivery process, monitoring, metrics, logging, security, validation and scalability.",
+    "test_type": "A",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 6"
+  },
+  {
+    "name": "Android Development (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/android-development-new/",
+    "description": "Multi-choice test that measures the knowledge of UI components for an Android device, services and alerts, animation and media apps, application components, security and testing.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 7"
+  },
+  {
+    "name": "Angular 6 (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/angular-6-new/",
+    "description": "Multi-choice test that measures the knowledge of the basic components and modules of Angular 6 and concepts like data binding, dependency injection, CRUD with HTTP, typescript, routing and navigation.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 11"
+  },
+  {
+    "name": "AngularJS (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/angularjs-new/",
+    "description": "Multi-choice test that measures the knowledge of AngularJS architecture, forms, directives, filters, controllers, routing and testing.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 9"
+  },
+  {
+    "name": "Apache Hadoop (New)",
+    "url": "https://www.shl.com/products/product-catalog/view/apache-hadoop-new/",
+    "description": "Multi-choice test that measures the knowledge of basic concepts of Hadoop, commands, HDFS and MapReduce.",
+    "test_type": "K",
+    "job_levels": "Mid-Professional, Professional Individual Contributor",
+    "duration": "Approximate Completion Time in minutes = 7"
+  },
+  {
+    "name": "District/Regional Manager Solution",
+    "url": "https://www.shl.com/products/product-catalog/view/districtregional-manager-solution/",
+    "description": "The District/Regional Manager solution is for mid- to senior-level managerial positions that oversee multiple stores within a defined area.  Sample tasks for these jobs include, but are not limited to: directing a group of supervisors or managers, having profit and loss responsibility for a district or region, and aligning work with overall company goals.  Potential job titles that use this solution are: Regional Director, District Manager, General Manager, Regional Manager, Store Manager, and Area Manager. There are multiple configurations and versions of this solution available.",
+    "test_type": "K",
+    "job_levels": "Manager",
+    "duration": "Approximate Completion Time in minutes = 65"
+  },
+  {
+    "name": "Entry Level Cashier 7.1 (Americas)",
+    "url": "https://www.shl.com/products/product-catalog/view/entry-level-cashier-7-1-%28americas%29/",
+    "description": "The Entry level Cashier 7.1 solution is for entry-level retail positions in which employees receive payment in the form of cash, check, or credit cards for goods purchased. Sample tasks for these jobs include, but are not limited to: handling payments, offering customer service, and issuing receipts and refunds. Potential job titles that use this solution are: Cashier, Sales Associate, and Clerk.",
+    "test_type": "K",
+    "job_levels": "Entry-Level",
+    "duration": "Approximate Completion Time in minutes = 18"
+  }
+]
