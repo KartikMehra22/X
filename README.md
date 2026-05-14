@@ -1,6 +1,6 @@
 # SHL Assessment Recommender
 
-An AI-powered advisor that helps HR professionals and hiring managers find the perfect SHL assessments for their candidates. Using a RAG (Retrieval-Augmented Generation) architecture, the system semantically searches a curated catalog of 50+ SHL assessments and utilizes the Groq Llama-3.3-70b model to provide tailored, fact-based recommendations through a conversational interface.
+An AI-powered advisor that helps HR professionals and hiring managers find the perfect SHL assessments through dialogue. Using a RAG (Retrieval-Augmented Generation) architecture, the system semantically searches a comprehensive catalog of 120+ SHL assessments and utilizes the Groq Llama-3.3-70b model to provide tailored, fact-based recommendations. The agent supports complex conversational behaviors including clarification, refinement, comparison, and refusal of out-of-scope queries.
 
 ## Setup Instructions
 

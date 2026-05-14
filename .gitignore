@@ -8,3 +8,4 @@ venv/
 catalog.json
 traces.json
 server.log
+*.pdf

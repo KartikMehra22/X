@@ -32,8 +32,18 @@ def build_index():
     # 4. For each product, builds a rich text chunk
     for i, item in enumerate(catalog):
         name = item.get('name', 'N/A')
-        url = item.get('url', 'N/A')
-        test_type = item.get('test_type', 'K')
+        url = item.get('link', 'N/A')  # Correct key is 'link'
+        
+        # Infer test_type from 'keys'
+        keys = item.get('keys', [])
+        test_type = 'K' # Default Knowledge/Skills
+        if 'Personality & Behavior' in keys:
+            test_type = 'P'
+        elif 'Ability & Aptitude' in keys:
+            test_type = 'A'
+        elif 'Simulations' in keys:
+            test_type = 'S'
+            
         description = item.get('description', '')
         job_levels = item.get('job_levels', 'N/A')
         duration = item.get('duration', 'N/A')
