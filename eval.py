@@ -30,7 +30,7 @@ def run_trace(trace: dict, api_url: str) -> dict:
             response = requests.post(
                 f"{api_url}/chat",
                 json={"messages": messages},
-                timeout=15
+                timeout=30
             )
             response.raise_for_status()
             data = response.json()
@@ -65,7 +65,7 @@ def probe_behavior(api_url: str, query: str, probe_name: str):
         response = requests.post(
             f"{api_url}/chat",
             json={"messages": [{"role": "user", "content": query}]},
-            timeout=10
+            timeout=30
         )
         response.raise_for_status()
         data = response.json()

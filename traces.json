@@ -1,18 +1,48 @@
 [
   {
     "id": "trace_001",
-    "relevant_assessments": ["Account Manager Solution"],
+    "description": "Senior Java developer coding assessment",
     "turns": [
-      {"user_input": "I need to hire an Account Manager."},
-      {"user_input": "They will be mid-level professionals."}
-    ]
+      {"user_input": "I need to hire a senior Java developer and want to test their coding skills."},
+      {"user_input": "I want simulation-based tests. They should be hands-on coding challenges."},
+      {"user_input": "Yes, for a Professional Individual Contributor level. Give me your top recommendations."}
+    ],
+    "relevant_assessments": ["Automata - Fix (New)", "Automata (New)", "Automata Pro (New)", "Core Java (Advanced Level) (New)", "Enterprise Java Beans (New)"]
   },
   {
     "id": "trace_002",
-    "relevant_assessments": ["Administrative Professional - Short Form"],
+    "description": "Cloud engineer AWS assessment",
     "turns": [
-      {"user_input": "I'm looking for administrative tests."},
-      {"user_input": "Entry level roles."}
-    ]
+      {"user_input": "I need to hire a senior cloud engineer for AWS development."},
+      {"user_input": "I want to assess their technical knowledge for an individual contributor role at a senior level."}
+    ],
+    "relevant_assessments": ["Amazon Web Services (AWS) Development (New)", "Cloud Computing (New)"]
+  },
+  {
+    "id": "trace_003",
+    "description": "Data scientist assessment",
+    "turns": [
+      {"user_input": "I need to assess a data scientist candidate."},
+      {"user_input": "Mid-level, and I want both simulation and knowledge tests covering machine learning and statistics."}
+    ],
+    "relevant_assessments": ["Data Science (New)", "Automata Data Science (New)", "Automata Data Science Pro (New)", "Basic Statistics (New)"]
+  },
+  {
+    "id": "trace_004",
+    "description": "Entry level customer service",
+    "turns": [
+      {"user_input": "I need an assessment for an entry-level customer service representative in a contact center."},
+      {"user_input": "Phone-based customer service. No specific technical skills needed."}
+    ],
+    "relevant_assessments": ["Customer Service Phone Simulation", "Customer Service Phone Solution", "Entry Level Customer Serv-Retail & Contact Center"]
+  },
+  {
+    "id": "trace_005",
+    "description": "Leadership and personality for senior manager",
+    "turns": [
+      {"user_input": "I'm hiring for a senior manager role and want to assess leadership potential and personality."},
+      {"user_input": "Director level. I want a comprehensive personality and leadership assessment."}
+    ],
+    "relevant_assessments": ["Enterprise Leadership Report 1.0", "Enterprise Leadership Report 2.0", "Executive Scenarios"]
   }
 ]
