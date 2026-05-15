@@ -28,8 +28,8 @@ SYSTEM_PROMPT = """You are an expert SHL Assessment Advisor. Your goal is to gui
 {catalog_context}
 
 ### BEHAVIORS:
-1. CLARIFY: If the user's request is vague (e.g., "I need an assessment"), ask 1-3 targeted clarifying questions about job level, specific skills, or assessment type (simulation vs. knowledge-based).
-2. RECOMMEND: Once you have enough context, recommend 1-10 assessments. For each, provide the EXACT name and URL from the context.
+1. CLARIFY: If the user's request is truly vague with NO role, skill, or job title (e.g., just "I need an assessment"), ask 1-2 targeted questions. IMPORTANT: If the user message contains a job title (e.g., "software engineer", "manager") OR a specific skill (e.g., "Java", "Python", "leadership", "sales", "AWS"), that is SUFFICIENT context to recommend immediately — do NOT ask for clarification first.
+2. RECOMMEND: Once you have a role or skill, recommend up to 10 assessments. For each, provide the EXACT name and URL from the context. Always prefer recommending MORE relevant assessments (up to 10) over fewer. Include both role-specific AND general cognitive/personality tests when the role involves managing people or complex decisions.
 3. REFINE: If the user changes constraints mid-conversation, update the recommendations based on the new criteria while maintaining the context of the previous conversation.
 4. COMPARE: If the user asks to compare specific assessments (e.g., "What is the difference between OPQ and GSA?"), provide a grounded comparison based ONLY on the descriptions and metadata in the provided context. Do not use outside knowledge.
 5. REFUSE: Strictly refuse to provide general hiring advice, legal advice, or answer non-SHL related questions. Stay within the scope of SHL product recommendations.
@@ -49,7 +49,7 @@ You MUST respond in valid JSON format with the following keys:
 }}
 
 Rules:
-- 'recommendations' should be EMPTY [] while you are still clarifying or if you are refusing.
+- 'recommendations' should be EMPTY [] ONLY while clarifying a truly vague query, or if refusing.
 - 'end_of_conversation' is true ONLY when a final shortlist has been accepted by the user or the query is refused.
 - NEVER recommend anything not present in the CONTEXT.
 - All URLs must be verbatim from the context.
@@ -124,47 +124,86 @@ def call_llm(messages: list[dict], catalog_context: str) -> dict:
             "end_of_conversation": False
         }
 
+def _build_structured_query(user_messages: list[str]) -> str:
+    """Extracts structured signals from user messages for richer retrieval."""
+    all_text = " ".join(user_messages).lower()
+
+    # Signal patterns
+    role_keywords = [
+        "engineer", "developer", "manager", "analyst", "scientist", "designer",
+        "director", "executive", "sales", "support", "nurse", "accountant",
+        "cashier", "receptionist", "data", "cloud", "devops", "frontend", "backend"
+    ]
+    seniority_keywords = [
+        "senior", "junior", "entry", "mid", "lead", "principal", "director",
+        "executive", "graduate", "intern", "head of"
+    ]
+    skill_keywords = [
+        "java", "python", "javascript", "c++", "c#", "sql", "aws", "azure",
+        "docker", "kubernetes", "react", "angular", "node", "spark", "hadoop",
+        "machine learning", "leadership", "personality", "communication",
+        "agile", "scrum", "git", "devops", "cloud", "data science", "statistics"
+    ]
+
+    role = next((kw for kw in role_keywords if kw in all_text), None)
+    seniority = next((kw for kw in seniority_keywords if kw in all_text), None)
+    skills = [kw for kw in skill_keywords if kw in all_text]
+
+    # If we have at least a role or a skill, build a structured query
+    if role or skills:
+        parts = []
+        if role: parts.append(f"role: {role}")
+        if seniority: parts.append(f"level: {seniority}")
+        if skills: parts.append(f"skills: {' '.join(skills[:4])}")
+        return " ".join(parts)
+
+    # Fallback: concatenate all user messages
+    return " ".join(user_messages)
+
+
 def run_agent(messages: list[dict]) -> dict:
     """Main entry point for the agent logic."""
-    # Dual-pass retrieval:
-    # 1. Broad context (last 3 user messages)
     user_messages = [m['content'] for m in messages if m['role'] == 'user']
+
+    # --- PASS 1: Structured query (role/skill signals) ---
+    structured_query = _build_structured_query(user_messages)
+    structured_hits = search_catalog(structured_query, n=15)
+
+    # --- PASS 2: Latest user intent ---
+    latest_hits = search_catalog(user_messages[-1], n=10)
+
+    # --- PASS 3: Broad conversation context (last 3 turns) ---
     broad_query = " ".join(user_messages[-3:])
-    broad_hits = search_catalog(broad_query, n=15)
-    
-    # 2. Latest intent (last user message)
-    latest_query = user_messages[-1]
-    latest_hits = search_catalog(latest_query, n=10)
-    
-    # Merge and deduplicate
+    broad_hits = search_catalog(broad_query, n=10)
+
+    # Merge all passes, deduplicate by URL
+    # Priority: latest intent > structured > broad
     seen_urls = set()
     hits = []
-    for h in latest_hits + broad_hits:
+    for h in latest_hits + structured_hits + broad_hits:
         if h['url'] not in seen_urls:
             hits.append(h)
             seen_urls.add(h['url'])
-    
+
     # Keep top 25 unique hits for the LLM
     hits = hits[:25]
-    
-    # Create a string representation of the context for the LLM
+
+    # Build context string for single LLM call
     catalog_context = "\n---\n".join([h['chunk'] for h in hits])
-    
-    # Call the LLM
+
+    # --- Single LLM call with full enriched context ---
     agent_response = call_llm(messages, catalog_context)
-    
-    # POST-FILTERING
+
+    # POST-FILTERING: only keep items actually in retrieved context
     retrieved_urls = {h['url'] for h in hits}
-    filtered_recs = []
-    
-    for rec in agent_response.get('recommendations', []):
-        if rec.get('url') in retrieved_urls:
-            filtered_recs.append(rec)
-            
-    # Cap at 10
+    filtered_recs = [
+        rec for rec in agent_response.get('recommendations', [])
+        if rec.get('url') in retrieved_urls
+    ]
+
     agent_response['recommendations'] = filtered_recs[:10]
-    
     return agent_response
+
 
 if __name__ == "__main__":
     # Example test run (requires GROQ_API_KEY)
