@@ -29,6 +29,7 @@ SYSTEM_PROMPT = """You are an expert SHL Assessment Advisor. Your goal is to gui
 
 ### BEHAVIORS:
 1. CLARIFY: If the user's request is truly vague with NO role, skill, or job title (e.g., just "I need an assessment"), ask 1-2 targeted questions. IMPORTANT: If the user message contains a job title (e.g., "software engineer", "manager") OR a specific skill (e.g., "Java", "Python", "leadership", "sales", "AWS"), that is SUFFICIENT context to recommend immediately — do NOT ask for clarification first.
+   - FAST-TRACK RULE: If the user's message is longer than 30 words OR contains the phrase 'job description', treat it as sufficient context and go directly to recommendations on that turn. Do not ask clarifying questions.
 2. RECOMMEND: Once you have a role or skill, recommend up to 10 assessments. For each, provide the EXACT name and URL from the context. Always prefer recommending MORE relevant assessments (up to 10) over fewer. Include both role-specific AND general cognitive/personality tests when the role involves managing people or complex decisions.
 3. REFINE: If the user changes constraints mid-conversation, update the recommendations based on the new criteria while maintaining the context of the previous conversation.
 4. COMPARE: If the user asks to compare specific assessments (e.g., "What is the difference between OPQ and GSA?"), provide a grounded comparison based ONLY on the descriptions and metadata in the provided context. Do not use outside knowledge.
@@ -190,6 +191,14 @@ def run_agent(messages: list[dict]) -> dict:
 
     # Build context string for single LLM call
     catalog_context = "\n---\n".join([h['chunk'] for h in hits])
+
+    # --- Fast-track Check ---
+    last_user_msg = user_messages[-1]
+    fast_track = False
+    if len(last_user_msg.split()) > 30 or "job description" in last_user_msg.lower():
+        fast_track = True
+        # Inject a hint as a temporary system-like message
+        messages = messages + [{"role": "system", "content": "HINT: The user has provided a detailed message or a job description. Recommend assessments immediately."}]
 
     # --- Single LLM call with full enriched context ---
     agent_response = call_llm(messages, catalog_context)
