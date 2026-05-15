@@ -56,11 +56,12 @@ Rules:
 - All URLs must be verbatim from the context.
 """
 
-def search_catalog(query: str, n: int = 12) -> list[dict]:
-    """Queries the ChromaDB collection and returns top-n results."""
+def search_catalog(query: str, n: int = 12, where: dict = None) -> list[dict]:
+    """Queries the ChromaDB collection and returns top-n results with optional filtering."""
     results = collection.query(
         query_texts=[query],
-        n_results=n
+        n_results=n,
+        where=where
     )
     
     formatted_results = []
@@ -125,6 +126,37 @@ def call_llm(messages: list[dict], catalog_context: str) -> dict:
             "end_of_conversation": False
         }
 
+def get_type_boosted_results(query: str, n: int = 15) -> list[dict]:
+    """Fetches semantic results and boosts specific test types based on keywords."""
+    # Main semantic results
+    base_hits = search_catalog(query, n=n)
+    
+    query_lower = query.lower()
+    boost_hits = []
+    
+    # Leadership/Management Boost
+    mgmt_keywords = ["manage", "lead", "team", "stakeholder", "director", "head of", "executive", "supervisor"]
+    if any(kw in query_lower for kw in mgmt_keywords):
+        # Boost Personality (P) and Ability (A)
+        boost_hits += search_catalog(query, n=5, where={"test_type": "P"})
+        boost_hits += search_catalog(query, n=5, where={"test_type": "A"})
+        
+    # Technical Boost
+    tech_keywords = ["technical", "developer", "engineer", "code", "programming", "software", "api", "data", "cloud"]
+    if any(kw in query_lower for kw in tech_keywords):
+        # Boost Knowledge (K)
+        boost_hits += search_catalog(query, n=5, where={"test_type": "K"})
+        
+    # Merge and deduplicate
+    seen_urls = set()
+    merged = []
+    for h in boost_hits + base_hits:
+        if h['url'] not in seen_urls:
+            merged.append(h)
+            seen_urls.add(h['url'])
+            
+    return merged[:25] # Cap at 25 unique items for LLM context
+
 def _build_structured_query(user_messages: list[str]) -> str:
     """Extracts structured signals from user messages for richer retrieval."""
     all_text = " ".join(user_messages).lower()
@@ -166,22 +198,18 @@ def run_agent(messages: list[dict]) -> dict:
     """Main entry point for the agent logic."""
     user_messages = [m['content'] for m in messages if m['role'] == 'user']
 
-    # --- PASS 1: Structured query (role/skill signals) ---
+    # --- PASS 1: Structured query with Type Boosting ---
     structured_query = _build_structured_query(user_messages)
-    structured_hits = search_catalog(structured_query, n=15)
+    structured_hits = get_type_boosted_results(structured_query, n=15)
 
-    # --- PASS 2: Latest user intent ---
-    latest_hits = search_catalog(user_messages[-1], n=10)
-
-    # --- PASS 3: Broad conversation context (last 3 turns) ---
-    broad_query = " ".join(user_messages[-3:])
-    broad_hits = search_catalog(broad_query, n=10)
+    # --- PASS 2: Latest user intent with Type Boosting ---
+    latest_hits = get_type_boosted_results(user_messages[-1], n=10)
 
     # Merge all passes, deduplicate by URL
-    # Priority: latest intent > structured > broad
+    # Priority: latest intent > structured
     seen_urls = set()
     hits = []
-    for h in latest_hits + structured_hits + broad_hits:
+    for h in latest_hits + structured_hits:
         if h['url'] not in seen_urls:
             hits.append(h)
             seen_urls.add(h['url'])

@@ -8,11 +8,11 @@ The system is built as a **Retrieval-Augmented Generation (RAG)** agent. It brid
 - **ChromaDB**: Utilized as the vector store with the `all-MiniLM-L6-v2` embedding model for fast, local semantic retrieval.
 - **Groq (Llama-3.3-70b)**: Selected for its sub-second latency and superior reasoning capabilities required for complex behaviors like comparison and refusal.
 
-## 2. Retrieval Strategy: Multi-Pass Merged Search
-Initially, handling "Refinement" was a challenge as single-pass search on the full history often "drowned out" new keywords. We evolved this into a **Multi-Pass Merged Retrieval** logic:
+## 2. Retrieval Strategy: Multi-Pass Merged Search with Type Boosting
+Initially, handling "Refinement" was a challenge as single-pass search on the full history often "drowned out" new keywords. We evolved this into a **Multi-Pass Merged Retrieval** logic with **Category Boosting**:
 1. **Latest Intent Pass**: Searches specifically on the latest user message to capture immediate pivots.
-2. **Structured Signal Pass**: Extracts key signals (role, level, skills, purpose) from the entire conversation history to build a high-precision query (e.g., `role: engineer level: senior skills: java aws`).
-3. **Context Pass**: Searches based on the last 3 turns to maintain broader continuity.
+2. **Structured Signal Pass**: Extracts key signals (role, level, skills, purpose) from the entire conversation history to build a high-precision query.
+3. **Category Boosting**: If keywords related to management or technical skills are detected, the system performs targeted searches for specific `test_type` categories (e.g., Personality 'P' and Ability 'A' for leaders).
 4. **Merge & Deduplicate**: All results are merged and deduplicated by URL, ensuring a rich 25-item context window that respects both long-term goals and short-term changes.
 
 ## 3. Prompt Engineering & Behavior Design
