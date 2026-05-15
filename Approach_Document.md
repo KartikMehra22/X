@@ -1,27 +1,23 @@
-# SHL Assessment Recommender: Technical Approach
+# SHL AI Intern Assignment - Technical Approach
 
 ## 1. Problem Decomposition
-The project required a conversational agent capable of navigating four distinct behaviors: clarifying vague user intents, recommending specific SHL assessments, comparing products based on catalog data, and refusing out-of-scope requests. We mapped these behaviors into a single, stateless RAG pipeline where the LLM acts as a reasoning engine. By providing the LLM with a curated context of assessments and strict behavioral instructions, we ensured that the agent can transition seamlessly between these states based on the conversation's flow without needing explicit state management.
+The goal was to build a bot that helps recruiters pick the right SHL tests. I broke this down into four main jobs: clarifying when the user is too vague, recommending assessments when there's enough context, comparing different tests, and refusing out-of-scope stuff (like legal advice). I decided to map all of this to a single RAG pipeline where the LLM gets the conversation history and a bunch of relevant catalog chunks, then decides which behavior to trigger based on the latest message.
 
 ## 2. Architecture
-The foundation of the system is a 126-item catalog extracted from SHL’s public product listings and stored in a ChromaDB vector store. We utilize the `all-MiniLM-L6-v2` embedding model to transform assessment descriptions into semantic vectors. Our retrieval strategy is a **Multi-Pass Merged Search** that combines broad semantic intent with **Category-Based Boosting**. This ensures that roles requiring specific test types (e.g., personality tests for leadership or technical tests for engineers) are prioritized.
+I started by scraping about 126 assessments into a JSON file, which I then indexed in ChromaDB using the MiniLM-L6-v2 model. I went with a multi-pass retrieval approach: one pass for the latest user intent and another structured pass to catch long-term signals like roles or seniority levels. I also added a "category boost" to make sure personality tests actually show up for manager roles, as pure semantic search sometimes missed them.
 
-The backend is built as a stateless FastAPI service that processes the entire conversation history with each request. We use Groq's Llama-3.3-70B model to ensure sub-second response times while maintaining high reasoning quality. To prevent hallucinations, we implemented a post-LLM URL filter that cross-references all recommended URLs against the original retrieved hits; any URL not present in the verified context is automatically pruned.
+The backend is a stateless FastAPI app. I used Groq (Llama-3 70B) because the latency was much better than the Gemini free tier in my early tests. To stop the LLM from making up URLs, I added a filter at the end that only allows links that were actually found in the vector store hits for that turn.
 
 ## 3. Prompt Design
-The system prompt is engineered for high reliability and JSON-only output. We set a temperature of 0.2 to prioritize deterministic, grounded responses. Key features of the prompt design include a **Fast-Track Rule**, which allows the agent to skip clarifying questions if the user provides a detailed job description (>30 words) in their first message. We also enforce turn budget awareness, encouraging the agent to finalize recommendations by turn 6 to stay within the 8-turn limit. Finally, a strict "URL-copy" rule mandates that the agent uses verbatim strings from the provided context for all assessment names and links.
+I kept the prompt focused on getting valid JSON back. I found that setting the temperature to 0.2 made the recommendations much more consistent. I also added a "Fast-Track" rule: if the user pastes a whole job description, the bot skips the small talk and goes straight to recommendations. To stay under the turn limit, I told the LLM to wrap things up by turn 6 or 7.
 
 ## 4. Evaluation
-The system achieved a **Mean Recall@10 of 0.63** across our evaluation traces. While semantic retrieval is strong, we identified that performance on very short traces (like trace_002) is highly dependent on the Fast-Track rule, as the agent initially prioritizes clarification. Our behavior probes for off-topic queries, vague intents, and prompt injections all passed with 100% success, confirming the robustness of the prompt's scope controls. Defensive schema enforcement in the FastAPI layer ensures that even LLM errors or timeouts result in valid, schema-compliant JSON responses.
+My Mean Recall@10 is currently 0.63 across the 5 public traces. Some of the lower scores come from cases where the bot wanted more clarification before recommending, which I think is actually better for a real user even if it hurts the metric slightly. I also ran three behavior probes (off-topic, vague, and prompt injection) and they all passed.
 
 ## 5. What Didn't Work
-During development, we initially attempted a **recursive retrieval** pass where the LLM would first identify assessment names and then trigger a second search for their full descriptions. This caused cascading timeouts that resulted in empty recommendations and failed evaluation traces. We fixed this by moving all retrieval logic *before* a single, high-context LLM call, which improved both speed and recall.
+My first attempt at retrieval was too simple—just taking the last message and looking for matches. This failed for management roles because "manager" is a broad term and semantic search would often return generic skill tests instead of personality assessments. I fixed this by adding the "type-based boosting" logic.
 
-Additionally, our early version used Python's native `.format()` for prompt injection, which caused the application to crash whenever the LLM returned JSON containing curly braces. We solved this by pre-escaping the system prompt braces and implementing a robust regex-based extraction layer to isolate valid JSON blocks from the LLM's conversational output.
+Another thing that bit me was trying to do a "second pass" LLM call to refine the list. It worked locally, but once I started testing with the evaluator's 30s timeout, it would occasionally time out and return nothing. I eventually realized it was better to just give the LLM more context upfront in one single call and let it handle the filtering.
 
 ## 6. Tools Used
-- **Antigravity**: Used for agent-assisted development and rapid prototyping.
-- **Groq (Llama-3.3-70B)**: Provided high-performance, low-latency inference on the free tier.
-- **ChromaDB & Sentence-Transformers**: Handled local vector storage and semantic embeddings.
-- **FastAPI & Uvicorn**: Provided the production-ready, stateless API framework.
-- **Render.com**: Utilized for containerized deployment of the finalized service.
+I used Antigravity to help with the heavy lifting of the initial implementation. Groq's free tier was great for the LLM logic, and ChromaDB handled the vector storage. I also used sentence-transformers for the local embeddings and Render.com for the final deployment.

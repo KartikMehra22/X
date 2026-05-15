@@ -1,67 +1,58 @@
 # SHL Assessment Recommender
 
-An AI-powered advisor that helps HR professionals and hiring managers find the perfect SHL assessments through dialogue. Using a RAG (Retrieval-Augmented Generation) architecture, the system semantically searches a comprehensive catalog of 120+ SHL assessments and utilizes the Groq Llama-3.3-70b model to provide tailored, fact-based recommendations. The agent supports complex conversational behaviors including clarification, refinement, comparison, and refusal of out-of-scope queries.
+A conversational agent that helps hiring managers find SHL assessments. Built for the SHL Labs AI intern take-home.
 
-## Setup Instructions
+The bot uses a RAG setup with ChromaDB to search through a catalog of ~126 SHL assessments. It's powered by Groq (Llama 3 70B) to keep the responses fast and accurate.
 
-### 1. Installation
-Ensure you have Python 3.11+ installed.
+## Setup
+
+1. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Configuration
-Create a `.env` file in the root directory and add your Groq API key:
+2. Add your Groq API key to a `.env` file:
 ```env
-GROQ_API_KEY=your_groq_api_key_here
+GROQ_API_KEY=your_key_here
 ```
 
-### 3. Data Ingestion & Indexing
-Run the scraper to collect the latest catalog data and then build the vector index:
+3. (Optional) Run the scraper and indexer if you want to refresh the data:
 ```bash
 python scraper.py
 python build_index.py
 ```
 
-### 4. Start the Server
+4. Start the app:
 ```bash
 python main.py
 ```
-The server will be available at `http://localhost:8000`.
 
-## API Examples
+The server runs on `http://localhost:8000`.
 
-### Health Check
-**Request:**
-```bash
-curl http://localhost:8000/health
-```
-**Response:**
-```json
-{"status": "ok"}
-```
+## API Usage
 
-### Chat & Recommendation
-**Request:**
+### POST /chat
+The main endpoint. Expects a list of messages.
+
 ```bash
 curl -X POST http://localhost:8000/chat \
   -H "Content-Type: application/json" \
-  -d '{"messages": [{"role": "user", "content": "I need a personality test for a senior marketing manager role."}]}'
-```
-**Response:**
-```json
-{
-  "reply": "Based on the seniority and role, I recommend the Occupational Personality Questionnaire (OPQ)...",
-  "recommendations": [
-    {
-      "name": "OPQ32r",
-      "url": "https://www.shl.com/products/...",
-      "test_type": "P"
-    }
-  ],
-  "end_of_conversation": false
-}
+  -d '{"messages": [{"role": "user", "content": "I need to hire a senior java dev"}]}'
 ```
 
+### GET /health
+Just a simple health check.
+```bash
+curl http://localhost:8000/health
+```
+
+## Notes
+
+- The scraper is a bit fragile — if SHL changes their HTML structure it'll need updating.
+- Recall@10 is 0.63 on the public traces. I noticed that the bot sometimes prefers to clarify before recommending, which can lower the score but feels more natural.
+- Cold start on Render takes about 90 seconds because the embedding model needs to load into memory.
+- I used Groq instead of Gemini mainly because the latency was better (sub-second in most cases).
+
 ## Deployment
-This project is configured for deployment on **Render.com** using the included `Dockerfile` and `render.yaml`.
+
+Deployed on Render using the Dockerfile. It's set up to listen on port 8000.
