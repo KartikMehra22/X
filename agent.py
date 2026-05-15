@@ -97,6 +97,7 @@ def call_llm(messages: list[dict], catalog_context: str) -> dict:
             model="llama-3.3-70b-versatile",
             temperature=0.2,
             max_tokens=1000,
+            timeout=25
         )
         
         response_content = completion.choices[0].message.content
