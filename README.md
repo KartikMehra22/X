@@ -27,7 +27,7 @@ python build_index.py
 python main.py
 ```
 
-The server runs on `http://localhost:8000`.
+The server runs on `http://localhost:8000` locally and is deployed at **https://x-t52m.onrender.com**.
 
 ## API Usage
 
